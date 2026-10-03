@@ -1,0 +1,15 @@
+{
+  "name": "bill-floor-buddy",
+  "version": "1.0.0",
+  "description": "Tiny local cash-floor tracker: remaining gap and daily needed toward a bill deadline.",
+  "private": true,
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node scripts/smoke-test.js"
+  },
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  }
+}

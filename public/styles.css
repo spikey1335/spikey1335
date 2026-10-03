@@ -1,0 +1,197 @@
+:root {
+  --bg: #0f172a;
+  --card: #1e293b;
+  --card-border: #334155;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --mint: #34d399;
+  --amber: #fbbf24;
+  --danger: #f87171;
+  --input: #0b1220;
+  --radius: 14px;
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(1200px 600px at 10% -10%, #1d4ed622, transparent),
+    radial-gradient(900px 500px at 100% 0%, #05966922, transparent),
+    var(--bg);
+  color: var(--text);
+}
+
+.shell {
+  width: min(860px, calc(100% - 2rem));
+  margin: 2rem auto 3rem;
+  display: grid;
+  gap: 1.25rem;
+}
+
+.header h1 {
+  margin: 0.15rem 0;
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  letter-spacing: -0.03em;
+}
+
+.eyebrow {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-size: 0.72rem;
+  color: var(--mint);
+  font-weight: 700;
+}
+
+.tagline { margin: 0; color: var(--muted); }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 1.25rem 1.35rem 1.4rem;
+  box-shadow: 0 12px 40px #00000033;
+}
+
+.card-head h2 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.card-head .muted { margin: 0.25rem 0 0; }
+
+.goal-form, .bill-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) auto;
+  gap: 0.75rem;
+  align-items: end;
+  margin: 1rem 0 1.25rem;
+}
+
+.bill-form { grid-template-columns: 2fr 1fr auto; }
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+input {
+  width: 100%;
+  border: 1px solid var(--card-border);
+  background: var(--input);
+  color: var(--text);
+  border-radius: 10px;
+  padding: 0.7rem 0.8rem;
+  font-size: 1rem;
+}
+
+input:focus {
+  outline: 2px solid #34d39966;
+  border-color: var(--mint);
+}
+
+.btn {
+  border: 0;
+  border-radius: 10px;
+  padding: 0.75rem 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #06251a;
+  background: var(--mint);
+}
+
+.btn:hover { filter: brightness(1.05); }
+
+.btn.ghost {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid #7f1d1d88;
+  padding: 0.35rem 0.65rem;
+  font-size: 0.85rem;
+}
+
+.hero {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.stat {
+  background: #0b1220;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 0.9rem 1rem;
+}
+
+.stat.accent { border-color: #34d39955; }
+.stat.warn { border-color: #fbbf2455; }
+
+.stat-label {
+  display: block;
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-bottom: 0.35rem;
+}
+
+.stat-value {
+  font-size: clamp(1.4rem, 3vw, 1.9rem);
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+}
+
+.stat.accent .stat-value { color: var(--mint); }
+.stat.warn .stat-value { color: var(--amber); }
+.stat.warn.calm .stat-value { color: var(--mint); }
+
+.sanity { margin: 0.9rem 0 0; font-size: 0.9rem; }
+.muted { color: var(--muted); }
+.error { color: var(--danger); margin: 0 0 0.75rem; font-size: 0.9rem; }
+
+.bill-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.bill-list li {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: center;
+  background: #0b1220;
+  border: 1px solid var(--card-border);
+  border-radius: 10px;
+  padding: 0.75rem 0.9rem;
+}
+
+.bill-list .amount {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  margin-right: 0.75rem;
+}
+
+.bill-meta { display: flex; align-items: center; }
+
+.empty { margin: 0.75rem 0 0; }
+.empty[hidden], [hidden] { display: none !important; }
+
+.footer {
+  text-align: center;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 720px) {
+  .goal-form, .bill-form {
+    grid-template-columns: 1fr;
+  }
+  .hero { grid-template-columns: 1fr; }
+}

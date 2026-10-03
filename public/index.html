@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bill Floor Buddy</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <main class="shell">
+    <header class="header">
+      <div>
+        <p class="eyebrow">Cash floor tracker</p>
+        <h1>Bill Floor Buddy</h1>
+        <p class="tagline">See the remaining gap and how much you need each day.</p>
+      </div>
+    </header>
+
+    <section class="card goal-card" aria-labelledby="goal-heading">
+      <div class="card-head">
+        <h2 id="goal-heading">Your floor</h2>
+        <p class="muted" id="notice" hidden></p>
+      </div>
+
+      <form id="goal-form" class="goal-form">
+        <label>
+          Cash goal ($)
+          <input id="goal-input" name="goal" type="number" min="0" step="0.01" required />
+        </label>
+        <label>
+          Saved so far ($)
+          <input id="saved-input" name="saved" type="number" min="0" step="0.01" required />
+        </label>
+        <label>
+          Deadline
+          <input id="deadline-input" name="deadline" type="date" required />
+        </label>
+        <button type="submit" class="btn primary">Update floor</button>
+      </form>
+
+      <div class="hero" role="status" aria-live="polite">
+        <div class="stat">
+          <span class="stat-label">Days left</span>
+          <span class="stat-value" id="days-left">—</span>
+        </div>
+        <div class="stat accent">
+          <span class="stat-label">Remaining gap</span>
+          <span class="stat-value" id="remaining-gap">—</span>
+        </div>
+        <div class="stat warn" id="daily-stat">
+          <span class="stat-label">Daily needed</span>
+          <span class="stat-value" id="daily-needed">—</span>
+        </div>
+      </div>
+      <p class="sanity muted">
+        Bills listed: <strong id="bills-total">$0.00</strong>
+        · Goal covers checklist:
+        <strong id="coverage">—</strong>
+      </p>
+    </section>
+
+    <section class="card bills-card" aria-labelledby="bills-heading">
+      <div class="card-head">
+        <h2 id="bills-heading">Bills checklist</h2>
+        <p class="muted">Itemize what the floor has to cover.</p>
+      </div>
+
+      <form id="bill-form" class="bill-form">
+        <label>
+          Bill name
+          <input id="bill-name" name="name" type="text" maxlength="80" placeholder="Rent" required />
+        </label>
+        <label>
+          Amount ($)
+          <input id="bill-amount" name="amount" type="number" min="0" step="0.01" placeholder="800" required />
+        </label>
+        <button type="submit" class="btn primary">Add bill</button>
+      </form>
+      <p class="error" id="bill-error" hidden></p>
+
+      <ul id="bill-list" class="bill-list"></ul>
+      <p class="empty muted" id="empty-state">No bills yet — add rent, utilities, food…</p>
+    </section>
+
+    <footer class="footer muted">
+      Built with the Devpost Learn Skill Pack · Local only · No accounts
+    </footer>
+  </main>
+  <script src="/app.js"></script>
+</body>
+</html>
